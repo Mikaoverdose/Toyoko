@@ -1,0 +1,44 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/geist-mono';
+@import '@xyflow/react/dist/style.css';
+
+/* Design tokens. Status colors are for status only, never decoration. */
+@theme {
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, monospace;
+
+  --color-bg: #0e0f11;
+  --color-surface: #16181b;
+  --color-raised: #1d2024;
+  --color-border: #2a2e33;
+  --color-text: #e6e8eb;
+  --color-muted: #8a9099;
+  --color-accent: #5b8def;
+
+  --color-healthy: #3fb950;
+  --color-progressing: #58a6ff;
+  --color-degraded: #f85149;
+  --color-suspended: #d29922;
+  --color-outofsync: #e3b341;
+  --color-unknown: #6e7681;
+
+  --radius-control: 4px;
+  --radius-node: 6px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
