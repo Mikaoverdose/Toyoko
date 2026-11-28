@@ -1,0 +1,117 @@
+@property --color-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ddedf5;
+}
+
+@property --color-sky {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #b5dbef;
+}
+
+@property --color-fill {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #a6d8ee;
+}
+
+@property --color-accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #255f7d;
+}
+
+@property --color-deep {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #78b6d3;
+}
+
+@property --color-ink {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #1e4e66;
+}
+
+@property --color-chip {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #d3ecf7;
+}
+
+@property --color-tint-1 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #e6f4fa;
+}
+
+@property --color-tint-2 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #d3ecf7;
+}
+
+@property --color-tint-3 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #c2e3f2;
+}
+
+.desk {
+  transition: --color-bg 1.4s ease, --color-sky 1.4s ease, --color-fill 1.4s ease,
+    --color-accent 1.4s ease, --color-deep 1.4s ease, --color-ink 1.4s ease,
+    --color-chip 1.4s ease, --color-tint-1 1.4s ease, --color-tint-2 1.4s ease, --color-tint-3 1.4s ease;
+}
+
+[data-theme='pink'] {
+  --color-bg: #f6e6e8;
+  --color-sky: #f0c9d2;
+  --color-fill: #f4c3cb;
+  --color-accent: #903d54;
+  --color-deep: #de96a5;
+  --color-ink: #6b2537;
+  --color-chip: #fadce1;
+  --color-tint-1: #fcebee;
+  --color-tint-2: #f9dce1;
+  --color-tint-3: #f5cdd5;
+}
+
+[data-theme='mint'] {
+  --color-bg: #dff2ea;
+  --color-sky: #bde6d4;
+  --color-fill: #a8e0c6;
+  --color-accent: #24674c;
+  --color-deep: #7cc4a4;
+  --color-ink: #1d4d3a;
+  --color-chip: #d3f0e3;
+  --color-tint-1: #e8f7f0;
+  --color-tint-2: #d3f0e3;
+  --color-tint-3: #c0e9d7;
+}
+
+[data-theme='lavender'] {
+  --color-bg: #e9e5f7;
+  --color-sky: #d2caf0;
+  --color-fill: #cbc2f0;
+  --color-accent: #4f4196;
+  --color-deep: #a497da;
+  --color-ink: #3a2e78;
+  --color-chip: #e2ddf8;
+  --color-tint-1: #f0edfb;
+  --color-tint-2: #e2ddf8;
+  --color-tint-3: #d6cff4;
+}
+
+[data-theme='peach'] {
+  --color-bg: #fbebdd;
+  --color-sky: #f7d3b5;
+  --color-fill: #f8c9a4;
+  --color-accent: #8d4215;
+  --color-deep: #eba97a;
+  --color-ink: #6a3010;
+  --color-chip: #fde3cf;
+  --color-tint-1: #fef1e6;
+  --color-tint-2: #fde3cf;
+  --color-tint-3: #fbd6b9;
+}

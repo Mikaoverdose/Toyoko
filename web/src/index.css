@@ -1,44 +1,65 @@
 @import 'tailwindcss';
-@import '@fontsource-variable/geist';
+@import '@fontsource/m-plus-rounded-1c/latin-400.css';
+@import '@fontsource/m-plus-rounded-1c/latin-700.css';
+@import '@fontsource/m-plus-rounded-1c/latin-800.css';
+@import '@fontsource/gaegu/latin-700.css';
+@import '@fontsource/dotgothic16/latin-400.css';
 @import '@fontsource-variable/geist-mono';
 @import '@xyflow/react/dist/style.css';
+@import './features/demo/palettes.css';
+@import './features/demo/demo.css';
 
-/* Design tokens. Status colors are for status only, never decoration. */
 @theme {
-  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'M PLUS Rounded 1c', ui-rounded, system-ui, sans-serif;
   --font-mono: 'Geist Mono Variable', ui-monospace, monospace;
+  --font-hand: 'Gaegu', cursive;
+  --font-pixel: 'DotGothic16', monospace;
 
-  --color-bg: #0e0f11;
-  --color-surface: #16181b;
-  --color-raised: #1d2024;
-  --color-border: #2a2e33;
-  --color-text: #e6e8eb;
-  --color-muted: #8a9099;
-  --color-accent: #5b8def;
+  --color-surface: #fff;
+  --color-text: #5c4b47;
+  --color-heading: #6e4f48;
+  --color-dark: #4f3b36;
+  --color-muted: #735f5a;
+  --color-doodle: #5b4038;
+  --color-mascot-blush: #eca8b3;
+  --color-paper: #fffdf8;
+  --color-border: #f3edea;
 
-  --color-healthy: #3fb950;
-  --color-progressing: #58a6ff;
-  --color-degraded: #f85149;
-  --color-suspended: #d29922;
-  --color-outofsync: #e3b341;
-  --color-unknown: #6e7681;
+  /* Status colors are for status only. */
+  --color-healthy: #22633d;
+  --color-healthy-bg: #e3f3e8;
+  --color-progressing: #2a6389;
+  --color-progressing-bg: #e1eef7;
+  --color-degraded: #a32e2e;
+  --color-degraded-bg: #fbe4e4;
+  --color-outofsync: #825008;
+  --color-outofsync-bg: #fbeedc;
+  --color-unknown: #67534d;
 
-  --radius-control: 4px;
-  --radius-node: 6px;
-}
-
-html,
-body,
-#root {
-  height: 100%;
+  --radius-sticker: 22px;
+  --radius-control: 14px;
+  --radius-node: 16px;
 }
 
 body {
   margin: 0;
-  background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: .875rem;
+  line-height: 1.55;
   font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+button:not(:disabled) {
+  cursor: pointer;
 }
