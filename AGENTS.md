@@ -46,4 +46,4 @@ Rule 12 — Fail loud
 "Completed" is wrong if anything was skipped silently. "Tests pass" is wrong if any were skipped. Default to surfacing uncertainty, not hiding it.
 
 Rule 13 — Commits
-When asked to commit, use a short, specific message with a prefix such as `feat:`, `add:`, `fix:`, `del:`, `chore:`, `style:`, or `docs:`. Do not add yourself as a co-author or author.
+Commit as you go while coding; don't wait until the end. Each commit is one logical change: not too large (no unrelated changes bundled together), not too small (no commit per line or per file of the same change). Use a single short subject line with a prefix such as `feat:`, `add:`, `fix:`, `del:`, `style:`, `refactor:`, `chore:`, `docs:`, `test:`, or `ci:` (e.g. `feat: add container list endpoint`). No commit body or description, and no long messages. Do not add yourself as a co-author or author.
