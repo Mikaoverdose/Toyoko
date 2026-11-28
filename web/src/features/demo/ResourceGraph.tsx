@@ -1,5 +1,5 @@
 import { Background, Controls, Handle, Position, ReactFlow } from '@xyflow/react'
-import type { Edge, Node, NodeProps, NodeTypes } from '@xyflow/react'
+import type { Edge, FitViewOptions, Node, NodeProps, NodeTypes } from '@xyflow/react'
 import { Box, CircleAlert, CircleCheck, LayoutGrid, LoaderCircle, Network, Package } from 'lucide-react'
 import { memo, useMemo } from 'react'
 import Doodle from './Doodle'
@@ -16,7 +16,7 @@ type GraphNode = Node<{
 }, 'sticker'>
 
 const nodeIcons = { application: LayoutGrid, network: Network, service: Package, container: Box }
-const fitOptions = { padding: 0.12, maxZoom: 1.05 }
+const fitOptions = { padding: '5%', maxZoom: 1.05 } satisfies FitViewOptions
 const gap = 80
 const nodeHeight = 56
 const edgeOptions = { type: 'smoothstep' }
@@ -131,7 +131,7 @@ export default function ResourceGraph({ app, network, selected, onSelect }: {
           minZoom={0.3}
         >
           <Background gap={18} size={2} color="color-mix(in srgb, var(--color-deep) 40%, transparent)" />
-          <Controls showInteractive={false} position="bottom-right" orientation="horizontal" />
+          <Controls fitViewOptions={fitOptions} showInteractive={false} position="bottom-right" orientation="horizontal" />
         </ReactFlow>
         <Doodle motif="sparkle" className="graph-sparkle" />
         <Doodle motif="slime" className="graph-slime" />
