@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Toyoko — Sync shop (Sticker desk)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&amp;family=Gaegu:wght@700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:var(--strong)}
+.desk{position:relative;min-height:100vh;box-sizing:border-box;padding:32px 24px;display:flex;align-items:flex-start;justify-content:center;color:#5C4B47;font-family:'M PLUS Rounded 1c',ui-rounded,system-ui,sans-serif;font-size:14px;line-height:1.55;background-color:var(--bg);background-image:radial-gradient(rgba(91,64,56,.07) 1px,transparent 1.3px),linear-gradient(to bottom,var(--sky-top),var(--bg) 820px);background-size:5px 5px,100% 820px;background-repeat:repeat,no-repeat}
+.mono{font-family:'Geist Mono',ui-monospace,monospace}
+.stk{background:rgba(255,255,255,.96);border:3px solid #fff;border-radius:22px;box-shadow:0 6px 0 color-mix(in srgb,var(--deep) 45%,transparent),0 10px 22px color-mix(in srgb,var(--deep) 40%,transparent)}
+.bico{flex:none;width:42px;height:42px;border-radius:12px;background:var(--fill);color:var(--ink);display:flex;align-items:center;justify-content:center;transform:rotate(-6deg);box-shadow:0 4px 0 var(--deep)}
+.hl{background:linear-gradient(176deg,transparent 54%,var(--fill) 54%,var(--fill) 90%,transparent 90%);padding:0 4px}
+.note{display:inline-block;font-family:'Gaegu',cursive;font-weight:700;font-size:20px;line-height:1;color:var(--strong);transform:rotate(-3deg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;box-sizing:border-box;border-radius:999px;border:3px solid #fff;background:var(--fill);color:var(--ink);font-family:inherit;font-size:14px;font-weight:800;text-decoration:none;cursor:pointer;box-shadow:0 4px 0 var(--deep),0 8px 16px color-mix(in srgb,var(--deep) 35%,transparent)}
+.btn-w{background:#fff;color:#6E4F48;box-shadow:0 4px 0 color-mix(in srgb,var(--deep) 55%,transparent)}
+.chip{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;background:var(--chip);color:var(--chip-ink);font-size:12px;font-weight:700;white-space:nowrap}
+.row{display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 12px;border-radius:14px;background:var(--t1)}
+.opt{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 12px;border-radius:14px;background:var(--t1);cursor:pointer}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--strong);margin:0}
+.step{flex:none;width:24px;height:24px;border-radius:50%;background:var(--fill);color:var(--ink);font-size:12px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.doodle{position:absolute;filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(0 6px 6px rgba(91,64,56,.22))}
+.twinkle{animation:twinkle 3.4s ease-in-out infinite}
+:focus-visible{outline:3px solid var(--strong);outline-offset:3px}
+@keyframes twinkle{0%,100%{opacity:.4;transform:scale(.8)}50%{opacity:1;transform:scale(1.1)}}
+@media (prefers-reduced-motion:reduce){.twinkle{animation:none}}
+</style>
+</helmet>
+<div class="desk" style="{{vars}}">
+<section role="dialog" aria-modal="true" aria-labelledby="sync-title" class="stk" style="position: relative; width: 100%; max-width: 640px; box-sizing: border-box; padding: 22px; display: flex; flex-direction: column; gap: 16px">
+<svg class="doodle twinkle" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" stroke="#5B4038" stroke-width="1.6" stroke-linejoin="round" style="right: 70px; top: -12px"><path d="M12 2Q13 11 22 12 13 13 12 22 11 13 2 12 11 11 12 2Z" fill="#FFFFFF"></path></svg>
+<header style="display: flex; align-items: center; gap: 12px">
+<span class="bico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 12-4-4-4 4"></path><path d="M12 16V8"></path></svg></span>
+<h2 id="sync-title" style="margin: 0; font-size: 22px; font-weight: 800; color: #6E4F48">Sync <span class="hl">shop</span></h2>
+<a href="StickerAppMap.dc.html" aria-label="Close" style="margin-left: auto; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--t1); color: #6E4F48; border-radius: 50%"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></a>
+</header>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span class="chip">live <span class="mono">a1c9e2f</span></span>
+<span aria-hidden="true">→</span>
+<span class="chip" style="background: #FBEEDC; color: #9A5B00">target <span class="mono">e12d9b7</span></span>
+<span style="font-size: 13px; color: #7D6A65">“add refunds queue”</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-size: 14px; font-weight: 800; color: #6E4F48">What changes</h3>
+<div class="row"><b style="width: 64px; color: #4F3B36">worker</b><span class="mono" style="font-size: 12px">image 1.8.2 → 1.9.0</span><span class="chip" style="margin-left: auto">changed</span></div>
+<div class="row"><b style="width: 64px; color: #4F3B36">api</b><span class="mono" style="font-size: 12px">image 1.8.2 → 1.9.0 · env +1</span><span class="chip" style="margin-left: auto">changed</span></div>
+<div class="row"><b style="width: 64px; color: #4F3B36">migrate</b><span style="font-size: 12px">new one-shot job</span><span class="chip" style="margin-left: auto; background: #E3F3E8; color: #22633D">new</span></div>
+</div>
+
+<div class="mono" style="padding: 12px 14px; border-radius: 16px; background: #FFFDF8; border: 3px solid var(--t2); font-size: 12px; line-height: 21px; color: #4F3B36; white-space: pre-wrap">
+<div style="color: #7D6A65">compose.yaml · services.worker</div>
+<div style="background: #FBE4E4; color: #9B2C2C">-  image: shop/worker:1.8.2</div>
+<div style="background: #E3F3E8; color: #22633D">+  image: shop/worker:1.9.0</div>
+<div style="background: #E3F3E8; color: #22633D">+  depends_on:</div>
+<div style="background: #E3F3E8; color: #22633D">+    migrate: { condition: service_completed_successfully }</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-size: 14px; font-weight: 800; color: #6E4F48">Order</h3>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span class="step">1</span>migrate <span aria-hidden="true">→</span><span class="step">2</span>api <span aria-hidden="true">→</span><span class="step">3</span>worker <span class="note" style="margin-left: 10px">this fixes the worker!</span></div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label class="opt"><input type="checkbox" checked>Pull new images first</label>
+<label class="opt"><input type="checkbox">Remove containers no longer in the file</label>
+<label class="opt"><input type="checkbox">Dry run only</label>
+</div>
+
+<footer style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px">
+<a href="StickerAppMap.dc.html" class="btn btn-w">Cancel</a>
+<button type="button" class="btn"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 12-4-4-4 4"></path><path d="M12 16V8"></path></svg>Sync 3 resources</button>
+</footer>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["sky","pink","mint","lavender","peach"],"default":"sky"},"$preview":{"width":720,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const themes = {
+      sky: { bg: '#DDEDF5', skyTop: '#B5DBEF', fill: '#A6D8EE', strong: '#2F7799', deep: '#78B6D3', ink: '#1E4E66', chip: '#D3ECF7', chipInk: '#1E4E66', t1: '#E6F4FA', t2: '#D3ECF7' },
+      pink: { bg: '#F6E6E8', skyTop: '#F0C9D2', fill: '#F4C3CB', strong: '#A04B62', deep: '#DE96A5', ink: '#6B2537', chip: '#FADCE1', chipInk: '#6B2537', t1: '#FCEBEE', t2: '#F9DCE1' },
+      mint: { bg: '#DFF2EA', skyTop: '#BDE6D4', fill: '#A8E0C6', strong: '#2C7A5B', deep: '#7CC4A4', ink: '#1D4D3A', chip: '#D3F0E3', chipInk: '#1D4D3A', t1: '#E8F7F0', t2: '#D3F0E3' },
+      lavender: { bg: '#E9E5F7', skyTop: '#D2CAF0', fill: '#CBC2F0', strong: '#5E4FA8', deep: '#A497DA', ink: '#3A2E78', chip: '#E2DDF8', chipInk: '#3A2E78', t1: '#F0EDFB', t2: '#E2DDF8' },
+      peach: { bg: '#FBEBDD', skyTop: '#F7D3B5', fill: '#F8C9A4', strong: '#A9531C', deep: '#EBA97A', ink: '#6A3010', chip: '#FDE3CF', chipInk: '#6A3010', t1: '#FEF1E6', t2: '#FDE3CF' }
+    };
+    const t = themes[this.props.theme] || themes.sky;
+    return {
+      vars: '--bg:' + t.bg + ';--sky-top:' + t.skyTop + ';--fill:' + t.fill + ';--strong:' + t.strong + ';--deep:' + t.deep + ';--ink:' + t.ink + ';--chip:' + t.chip + ';--chip-ink:' + t.chipInk + ';--t1:' + t.t1 + ';--t2:' + t.t2
+    };
+  }
+}
+</script>
+</body>
+</html>

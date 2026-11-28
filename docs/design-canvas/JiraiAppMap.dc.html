@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Toyoko — shop resource map (Jirai)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&amp;family=Zen+Maru+Gothic:wght@400;500;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#C2185B}a:hover{color:#1C1418}
+.jr{position:relative;min-height:100vh;box-sizing:border-box;overflow:clip;color:#2B1E24;font-family:'Zen Maru Gothic',system-ui,sans-serif;font-size:14px;line-height:1.6;background-color:#FBE4EC;background-image:repeating-linear-gradient(45deg,rgba(28,20,24,.04) 0 2px,transparent 2px 16px),repeating-linear-gradient(-45deg,rgba(28,20,24,.04) 0 2px,transparent 2px 16px)}
+.decol{font-family:'Kaisei Decol',serif}
+.mono{font-family:'Geist Mono',ui-monospace,monospace}
+.band{position:relative;z-index:2;background:#1C1418;color:#FFD1DF}
+.band::after{content:'';position:absolute;left:0;right:0;bottom:-9px;height:9px;background:radial-gradient(circle at 9px 0,#1C1418 8px,transparent 8.5px) 0 0/18px 9px repeat-x}
+.card{position:relative;background:#FFF7FA;border:1.5px solid #1C1418;border-radius:16px;box-shadow:4px 4px 0 #1C1418}
+.lace::before{content:'';position:absolute;left:16px;right:16px;top:-8px;height:8px;background:radial-gradient(circle at 7px 8px,#FFFFFF 5px,#1C1418 5.6px,#1C1418 6.6px,transparent 7.2px) 0 0/14px 8px repeat-x;pointer-events:none}
+.node{position:absolute;height:56px;box-sizing:border-box;padding:0 10px;display:flex;align-items:center;gap:9px;background:#fff;border:1.5px solid #1C1418;border-radius:12px;box-shadow:2px 2px 0 #F2A7BF;color:#1C1418;transition:transform .3s ease}
+.node:hover{transform:translate(-1px,-2px)}
+.ttl{margin:0;font-family:'Kaisei Decol',serif;font-weight:700;color:#1C1418;line-height:1.15}
+.hl{background:linear-gradient(transparent 58%,#FFC4D6 58%,#FFC4D6 92%,transparent 92%);padding:0 4px}
+.jp{font-family:'Kaisei Decol',serif;font-size:12px;letter-spacing:.2em;color:#C2185B}
+.sigh{font-family:'Kaisei Decol',serif;font-size:14px;color:#C2185B}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;box-sizing:border-box;border:1.5px solid #1C1418;border-radius:999px;background:#1C1418;color:#FFD1DF;font-family:inherit;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;box-shadow:3px 3px 0 #E8789C}
+.btn:hover{color:#fff}
+.btn-p{background:#FFC4D6;color:#1C1418;box-shadow:3px 3px 0 #1C1418}
+.btn-p:hover{background:#FFB3CA;color:#1C1418}
+.btn-w{background:#fff;color:#1C1418;box-shadow:3px 3px 0 #1C1418}
+.btn-w:hover{background:#FFF0F5;color:#1C1418}
+.chip{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border:1.5px solid #1C1418;border-radius:999px;background:#fff;color:#1C1418;font-size:12px;font-weight:700;white-space:nowrap}
+.tab{min-height:44px;padding:0 18px;border:1.5px solid #1C1418;border-radius:999px;background:#fff;color:#1C1418;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.tab-on{background:#1C1418;color:#FFD1DF}
+.navl{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 14px;border-radius:999px;color:#2B1E24;font-weight:700;text-decoration:none}
+.navl-on{background:#1C1418;color:#FFD1DF}
+.navl-on:hover{color:#fff}
+.deco{position:absolute;pointer-events:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid #C2185B;outline-offset:3px}
+@media (max-width:900px){.deco{display:none}}
+@media (prefers-reduced-motion:reduce){.node,.node:hover{transition:none;transform:none}}
+</style>
+</helmet>
+<div class="jr">
+
+<header class="band">
+<div style="max-width: 1920px; margin: 0 auto; padding: 14px 28px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 18px">
+<a href="JiraiMain.dc.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #FFD1DF">
+<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.7 1.2 5.3 3 1.6-1.8 3.1-3 5.3-3 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#FFC4D6"></path><path d="M10 9h4v2h-1v4h-2v-4h-1z" fill="#1C1418"></path></svg>
+<span class="decol" style="font-size: 26px; font-weight: 700; letter-spacing: 0.04em">Toyoko</span>
+<span class="decol" style="font-size: 12px; letter-spacing: 0.24em; color: #F4A3BD">とよこ</span>
+</a>
+<form role="search" style="flex: 1 1 320px; max-width: 520px; margin: 0 auto; display: flex">
+<label for="q" class="sr">Search apps and containers</label>
+<input id="q" type="search" placeholder="Search apps, containers…" style="flex: 1; min-width: 0; height: 44px; box-sizing: border-box; padding: 0 18px; border: 1.5px solid #FFD1DF; border-right: 0; border-radius: 999px 0 0 999px; background: #FFF7FA; color: #1C1418; font-family: inherit; font-size: 14px">
+<button type="submit" aria-label="Search" style="width: 54px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1.5px solid #FFD1DF; border-radius: 0 999px 999px 0; background: #FFC4D6; color: #1C1418; cursor: pointer"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></button>
+</form>
+<button type="button" class="btn btn-p" style="box-shadow: 3px 3px 0 #E8789C"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5v14"></path></svg>New app</button>
+</div>
+</header>
+
+<div style="position: relative; max-width: 1920px; margin: 0 auto; padding: 34px 28px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 28px">
+
+<nav aria-label="Main" class="card lace" style="flex: 1 1 200px; max-width: 100%; box-sizing: border-box; padding: 16px 10px; display: flex; flex-direction: column; gap: 4px">
+<a href="JiraiMain.dc.html" aria-current="page" class="navl navl-on"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.7 1.2 5.3 3 1.6-1.8 3.1-3 5.3-3 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#FFC4D6"></path></svg>Applications</a>
+<a href="#" class="navl"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>Repositories</a>
+<a href="#" class="navl"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="2" y1="14" x2="6" y2="14"></line><line x1="10" y1="8" x2="14" y2="8"></line><line x1="18" y1="16" x2="22" y2="16"></line></svg>Settings</a>
+<div aria-hidden="true" style="margin-top: 18px; display: flex; justify-content: center"><svg width="74" height="46" viewBox="0 0 64 40"><path d="M32 18C22 4 4 4 6 18c2 12 16 10 26 4z" fill="#1C1418"></path><path d="M32 18C42 4 60 4 58 18c-2 12-16 10-26 4z" fill="#1C1418"></path><path d="M30 22 22 38l6-2 3-12z" fill="#1C1418"></path><path d="M34 22l8 16-6-2-3-12z" fill="#1C1418"></path><path d="M14 13q6-2 12 4M50 13q-6-2-12 4" stroke="#FFC4D6" stroke-width="1.5" fill="none" stroke-linecap="round"></path><circle cx="32" cy="20" r="5" fill="#FFC4D6" stroke="#1C1418" stroke-width="1.5"></circle></svg></div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #7A5A66"><a href="JiraiMain.dc.html">Applications</a><span aria-hidden="true">♡</span><span style="color: #1C1418">shop</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px">
+<div style="display: flex; flex-direction: column"><span class="jp">ショップ</span><h1 class="ttl" style="font-size: 32px"><span class="hl">shop</span></h1></div>
+<span class="chip" style="color: #A4161A; border-color: #A4161A; background: #FFE9EC; margin-bottom: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>Degraded</span>
+<span class="chip" style="color: #8A5300; border-color: #8A5300; background: #FFF4DF; margin-bottom: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 12-4-4-4 4"></path><path d="M12 16V8"></path></svg>Out of sync</span>
+<div style="margin-left: auto; display: flex; flex-wrap: wrap; gap: 10px">
+<button type="button" class="btn btn-w"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>Refresh</button>
+<button type="button" class="btn btn-w">History</button>
+<a href="JiraiSync.dc.html" class="btn"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.7 1.2 5.3 3 1.6-1.8 3.1-3 5.3-3 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#FFC4D6"></path></svg>Sync</a>
+</div>
+</div>
+<p class="sigh" style="margin: -4px 0 0">two services drifted away from Git… come back (｡•́︿•̀｡)</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span class="chip"><span class="mono" style="font-weight: 500">apps/shop · main</span></span>
+<span class="chip">live <span class="mono" style="font-weight: 500">a1c9e2f</span></span>
+<span class="chip" style="color: #8A5300; border-color: #8A5300; background: #FFF4DF">target <span class="mono" style="font-weight: 500">e12d9b7</span> · add refunds queue</span>
+<span class="chip">synced 2 h ago · manual</span>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<div role="tablist" aria-label="View" style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" role="tab" aria-selected="true" class="tab tab-on">Tree</button>
+<button type="button" role="tab" aria-selected="false" class="tab">Network</button>
+<button type="button" role="tab" aria-selected="false" class="tab">List</button>
+</div>
+<span style="margin-left: auto; font-size: 13px; font-weight: 700; color: #7A5A66">5 services · 6 containers</span>
+</div>
+
+<section aria-label="Resource map" class="card lace" style="padding: 10px; position: relative; margin-top: 6px">
+<div style="position: relative; overflow: auto; border-radius: 10px; background-color: #FFF0F5; background-image: radial-gradient(#F2BFD0 1.2px, transparent 1.5px); background-size: 18px 18px">
+<div style="position: relative; width: 716px; height: 552px; margin: 0 auto">
+<svg aria-hidden="true" width="32" height="8" viewBox="0 0 32 8" preserveAspectRatio="none" style="position: absolute; left: 200px; top: 272px; width: 32px; height: 8px; overflow: visible; fill: none; stroke: #C98AA0; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 0 4 L 32 4"></path></svg>
+<svg aria-hidden="true" width="8" height="400" viewBox="0 0 8 400" preserveAspectRatio="none" style="position: absolute; left: 228px; top: 76px; width: 8px; height: 400px; overflow: visible; fill: none; stroke: #C98AA0; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 4 0 L 4 400"></path></svg>
+<svg role="img" aria-label="shop owns service web" width="32" height="8" viewBox="0 0 32 8" preserveAspectRatio="none" style="position: absolute; left: 232px; top: 72px; width: 32px; height: 8px; overflow: visible; fill: none; stroke: #C98AA0; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 0 4 L 32 4"></path></svg>
+<svg role="img" aria-label="shop owns service api" width="32" height="8" viewBox="0 0 32 8" preserveAspectRatio="none" style="position: absolute; left: 232px; top: 192px; width: 32px; height: 8px; overflow: visible; fill: none; stroke: #C98AA0; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 0 4 L 32 4"></path></svg>
+<svg role="img" aria-label="shop owns service worker" width="32" height="8" viewBox="0 0 32 8" preserveAspectRatio="none" style="position: absolute; left: 232px; top: 312px; width: 32px; height: 8px; overflow: visible; fill: none; stroke: #1C1418; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 0 4 L 32 4"></path></svg>
+<svg role="img" aria-label="shop owns service postgres" width="32" height="8" viewBox="0 0 32 8" preserveAspectRatio="none" style="position: absolute; left: 232px; top: 392px; width: 32px; height: 8px; overflow: visible; fill: none; stroke: #C98AA0; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 0 4 L 32 4"></path></svg>
+<svg role="img" aria-label="shop owns service redis" width="32" height="8" viewBox="0 0 32 8" preserveAspectRatio="none" style="position: absolute; left: 232px; top: 472px; width: 32px; height: 8px; overflow: visible; fill: none; stroke: #C98AA0; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 0 4 L 32 4"></path></svg>
+<svg role="img" aria-label="Service web runs container shop-web-1" width="64" height="8" viewBox="0 0 64 8" preserveAspectRatio="none" style="position: absolute; left: 440px; top: 72px; width: 64px; height: 8px; overflow: visible; fill: none; stroke: #C98AA0; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 0 4 L 64 4"></path></svg>
+<svg aria-hidden="true" width="32" height="8" viewBox="0 0 32 8" preserveAspectRatio="none" style="position: absolute; left: 440px; top: 192px; width: 32px; height: 8px; overflow: visible; fill: none; stroke: #C98AA0; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 0 4 L 32 4"></path></svg>
+<svg aria-hidden="true" width="8" height="80" viewBox="0 0 8 80" preserveAspectRatio="none" style="position: absolute; left: 468px; top: 156px; width: 8px; height: 80px; overflow: visible; fill: none; stroke: #C98AA0; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 4 0 L 4 80"></path></svg>
+<svg role="img" aria-label="Service api runs container shop-api-1" width="32" height="8" viewBox="0 0 32 8" preserveAspectRatio="none" style="position: absolute; left: 472px; top: 152px; width: 32px; height: 8px; overflow: visible; fill: none; stroke: #C98AA0; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 0 4 L 32 4"></path></svg>
+<svg role="img" aria-label="Service api runs container shop-api-2" width="32" height="8" viewBox="0 0 32 8" preserveAspectRatio="none" style="position: absolute; left: 472px; top: 232px; width: 32px; height: 8px; overflow: visible; fill: none; stroke: #C98AA0; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 0 4 L 32 4"></path></svg>
+<svg role="img" aria-label="Service worker runs container shop-worker-1" width="64" height="8" viewBox="0 0 64 8" preserveAspectRatio="none" style="position: absolute; left: 440px; top: 312px; width: 64px; height: 8px; overflow: visible; fill: none; stroke: #1C1418; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 0 4 L 64 4"></path></svg>
+<svg role="img" aria-label="Service postgres runs container shop-postgres-1" width="64" height="8" viewBox="0 0 64 8" preserveAspectRatio="none" style="position: absolute; left: 440px; top: 392px; width: 64px; height: 8px; overflow: visible; fill: none; stroke: #C98AA0; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 0 4 L 64 4"></path></svg>
+<svg role="img" aria-label="Service redis runs container shop-redis-1" width="64" height="8" viewBox="0 0 64 8" preserveAspectRatio="none" style="position: absolute; left: 440px; top: 472px; width: 64px; height: 8px; overflow: visible; fill: none; stroke: #C98AA0; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.1 6"><path d="M 0 4 L 64 4"></path></svg>
+
+<div class="node" style="left: 32px; top: 248px; width: 168px; background: #1C1418; color: #FFD1DF; box-shadow: 3px 3px 0 #E8789C"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.7 1.2 5.3 3 1.6-1.8 3.1-3 5.3-3 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#FFC4D6"></path></svg><span style="flex: 1; min-width: 0; line-height: 17px"><b class="decol" style="font-weight: 700; font-size: 16px">shop</b><br><span style="font-size: 11px; color: #F4A3BD">app · 5 services</span></span><svg role="img" aria-label="Degraded" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF8FAE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div>
+
+<div class="node" style="left: 264px; top: 48px; width: 176px"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg><span style="flex: 1; min-width: 0; line-height: 17px"><b style="font-weight: 700">web</b><br><span class="mono" style="font-size: 11px; color: #7A5A66">nginx:1.27</span></span><svg role="img" aria-label="Healthy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div>
+<div class="node" style="left: 264px; top: 168px; width: 176px"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg><span style="flex: 1; min-width: 0; line-height: 17px"><b style="font-weight: 700">api</b> <span style="font-size: 11px; color: #7A5A66">2/2</span><br><span class="mono" style="font-size: 11px; color: #7A5A66">shop/api:1.8.2</span></span><svg role="img" aria-label="Out of sync" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8A5300" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 12-4-4-4 4"></path><path d="M12 16V8"></path></svg><svg role="img" aria-label="Healthy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div>
+<div class="node" style="left: 264px; top: 288px; width: 176px; border-color: #A4161A"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg><span style="flex: 1; min-width: 0; line-height: 17px"><b style="font-weight: 700">worker</b> <span style="font-size: 11px; color: #7A5A66">0/1</span><br><span class="mono" style="font-size: 11px; color: #7A5A66">shop/worker:1.8.2</span></span><svg role="img" aria-label="Out of sync" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8A5300" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 12-4-4-4 4"></path><path d="M12 16V8"></path></svg><svg role="img" aria-label="Degraded" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#A4161A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div>
+<div class="node" style="left: 264px; top: 368px; width: 176px"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg><span style="flex: 1; min-width: 0; line-height: 17px"><b style="font-weight: 700">postgres</b><br><span class="mono" style="font-size: 11px; color: #7A5A66">postgres:16</span></span><svg role="img" aria-label="Healthy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div>
+<div class="node" style="left: 264px; top: 448px; width: 176px"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg><span style="flex: 1; min-width: 0; line-height: 17px"><b style="font-weight: 700">redis</b><br><span class="mono" style="font-size: 11px; color: #7A5A66">redis:7.4</span></span><svg role="img" aria-label="Healthy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div>
+
+<div class="node" style="left: 504px; top: 48px; width: 188px"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg><span style="flex: 1; min-width: 0; line-height: 17px"><b class="mono" style="font-weight: 500; font-size: 12px">shop-web-1</b><br><span style="font-size: 11px; color: #7A5A66">running · 2 d</span></span><svg role="img" aria-label="Healthy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div>
+<div class="node" style="left: 504px; top: 128px; width: 188px"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg><span style="flex: 1; min-width: 0; line-height: 17px"><b class="mono" style="font-weight: 500; font-size: 12px">shop-api-1</b><br><span style="font-size: 11px; color: #7A5A66">running · 2 d</span></span><svg role="img" aria-label="Healthy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div>
+<div class="node" style="left: 504px; top: 208px; width: 188px"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg><span style="flex: 1; min-width: 0; line-height: 17px"><b class="mono" style="font-weight: 500; font-size: 12px">shop-api-2</b><br><span style="font-size: 11px; color: #7A5A66">running · 2 d</span></span><svg role="img" aria-label="Healthy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div>
+<div class="node" aria-current="true" style="left: 504px; top: 288px; width: 188px; background: #FFE3EC; border-width: 2px; box-shadow: 3px 3px 0 #1C1418"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#A4161A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg><span style="flex: 1; min-width: 0; line-height: 17px"><b class="mono" style="font-weight: 500; font-size: 12px">shop-worker-1</b><br><span style="font-size: 11px; font-weight: 700; color: #A4161A">restarting · exit 1</span></span><svg role="img" aria-label="Degraded" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#A4161A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div>
+<div class="node" style="left: 504px; top: 368px; width: 188px"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg><span style="flex: 1; min-width: 0; line-height: 17px"><b class="mono" style="font-weight: 500; font-size: 12px">shop-postgres-1</b><br><span style="font-size: 11px; color: #7A5A66">healthy · 2 d</span></span><svg role="img" aria-label="Healthy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div>
+<div class="node" style="left: 504px; top: 448px; width: 188px"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg><span style="flex: 1; min-width: 0; line-height: 17px"><b class="mono" style="font-weight: 500; font-size: 12px">shop-redis-1</b><br><span style="font-size: 11px; color: #7A5A66">running · 2 d</span></span><svg role="img" aria-label="Healthy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div>
+
+<svg class="deco" aria-hidden="true" width="50" height="22" viewBox="0 0 56 24" style="left: 664px; top: 272px; transform: rotate(32deg)"><rect x="2" y="2" width="52" height="20" rx="10" fill="#FFE1D2" stroke="#1C1418" stroke-width="1.5"></rect><rect x="20" y="5" width="16" height="14" rx="3" fill="#F6C1AA" stroke="#1C1418" stroke-width="1"></rect><circle cx="9" cy="9" r="1" fill="#1C1418"></circle><circle cx="12" cy="14" r="1" fill="#1C1418"></circle><circle cx="44" cy="9" r="1" fill="#1C1418"></circle><circle cx="47" cy="14" r="1" fill="#1C1418"></circle></svg>
+<svg class="deco" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" style="left: 60px; top: 60px; transform: rotate(-14deg)"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.7 1.2 5.3 3 1.6-1.8 3.1-3 5.3-3 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#FFC4D6" stroke="#1C1418" stroke-width="1.4"></path></svg>
+<svg class="deco" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" style="left: 96px; top: 470px"><path d="M10 2h4v6h6v4h-6v10h-4V12H4V8h6z" fill="#1C1418"></path></svg>
+</div>
+</div>
+<div role="group" aria-label="Zoom" style="position: absolute; right: 22px; bottom: 22px; display: flex; gap: 8px">
+<button type="button" aria-label="Zoom out" class="btn btn-w" style="width: 44px; padding: 0; font-size: 18px">−</button>
+<button type="button" aria-label="Zoom in" class="btn btn-w" style="width: 44px; padding: 0; font-size: 18px">+</button>
+<button type="button" aria-label="Fit to screen" class="btn btn-w" style="width: 44px; padding: 0"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"></path></svg></button>
+</div>
+</section>
+</main>
+
+<aside aria-label="Container details" class="card lace" style="flex: 1 1 340px; max-width: 100%; min-width: 0; box-sizing: border-box; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 10px">
+<h2 class="mono" style="margin: 0; font-size: 15px; font-weight: 500; color: #1C1418">shop-worker-1</h2>
+<button type="button" aria-label="Close details" class="btn btn-w" style="margin-left: auto; width: 44px; padding: 0"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<span class="chip" style="color: #A4161A; border-color: #A4161A; background: #FFE9EC"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>Degraded</span>
+<span class="sigh" style="font-size: 13px">hurt itself 3 times… ぴえん</span>
+</div>
+<dl style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; margin: 0; padding: 12px; border: 1.5px dashed #E8A3BA; border-radius: 12px; background: #fff; font-size: 12px">
+<div><dt style="color: #7A5A66">Image</dt><dd class="mono" style="margin: 0">shop/worker:1.8.2</dd></div>
+<div><dt style="color: #7A5A66">State</dt><dd style="margin: 0; font-weight: 700">Restarting</dd></div>
+<div><dt style="color: #7A5A66">Last exit</dt><dd style="margin: 0">code 1 · 10:41:03</dd></div>
+<div><dt style="color: #7A5A66">Network</dt><dd class="mono" style="margin: 0">shop_default</dd></div>
+</dl>
+<div role="tablist" aria-label="Container views" style="display: flex; flex-wrap: wrap; gap: 6px">
+<button type="button" role="tab" aria-selected="false" class="tab" style="padding: 0 12px; font-size: 13px">Summary</button>
+<button type="button" role="tab" aria-selected="true" class="tab tab-on" style="padding: 0 12px; font-size: 13px">Logs</button>
+<button type="button" role="tab" aria-selected="false" class="tab" style="padding: 0 12px; font-size: 13px">Events</button>
+<button type="button" role="tab" aria-selected="false" class="tab" style="padding: 0 12px; font-size: 13px">Stats</button>
+<button type="button" role="tab" aria-selected="false" class="tab" style="padding: 0 12px; font-size: 13px">Inspect</button>
+</div>
+<div role="tabpanel" aria-label="Logs" style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 8px">
+<label for="log-filter" class="sr">Filter logs</label>
+<input id="log-filter" type="search" placeholder="Filter logs" style="flex: 1; min-width: 0; height: 44px; box-sizing: border-box; padding: 0 16px; background: #fff; color: #1C1418; border: 1.5px solid #1C1418; border-radius: 999px; font-family: inherit; font-size: 13px">
+<button type="button" aria-pressed="true" class="btn btn-p" style="padding: 0 14px; font-size: 13px"><span style="width: 7px; height: 7px; border-radius: 50%; background: #1C1418"></span>Follow</button>
+</div>
+<div class="mono" style="height: 330px; overflow: auto; box-sizing: border-box; padding: 12px 14px; background: #1C1418; border-radius: 12px; font-size: 12px; line-height: 21px; color: #F6E9EE; white-space: pre-wrap">
+<div><span style="color: #C9A3B2">10:40:41 </span>INFO  worker starting · queue=orders</div>
+<div><span style="color: #C9A3B2">10:40:42 </span>INFO  connected postgres:5432/shop</div>
+<div><span style="color: #C9A3B2">10:40:42 </span><b style="color: #FF8FAE">ERROR</b> migration 0042_add_refunds not applied</div>
+<div><span style="color: #C9A3B2">10:40:42 </span><b style="color: #FF8FAE">FATAL</b> schema is 1 migration behind, exiting</div>
+<div style="color: #C9A3B2">── exited with code 1 · restart 2 in 10 s</div>
+<div><span style="color: #C9A3B2">10:40:52 </span>INFO  worker starting · queue=orders</div>
+<div><span style="color: #C9A3B2">10:40:53 </span><b style="color: #FF8FAE">ERROR</b> migration 0042_add_refunds not applied</div>
+<div><span style="color: #C9A3B2">10:40:53 </span><b style="color: #FF8FAE">FATAL</b> schema is 1 migration behind, exiting</div>
+<div style="color: #C9A3B2">── exited with code 1 · restart 3 in 10 s</div>
+<div><span style="color: #C9A3B2">10:41:03 </span>INFO  worker starting · queue=orders</div>
+<div><span style="color: #C9A3B2">10:41:03 </span><b style="color: #FF8FAE">FATAL</b> schema is 1 migration behind, exiting</div>
+<div style="color: #C9A3B2">── exited with code 1 · waiting 20 s</div>
+</div>
+</div>
+</aside>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

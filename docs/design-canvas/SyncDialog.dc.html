@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Toyoko — Sync shop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;600;700&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1E4A9A}a:hover{color:#24364F}
+.sky{position:relative;width:720px;height:820px;box-sizing:border-box;padding:28px;overflow:hidden;color:#24364F;font-family:'Zen Kaku Gothic New',system-ui,sans-serif;font-size:14px;line-height:1.6;background:#E9F1FA}
+.wash{position:absolute;border-radius:50%;pointer-events:none;filter:blur(30px)}
+.mincho{font-family:'Shippori Mincho B1',serif}
+.mono{font-family:'Geist Mono',ui-monospace,monospace}
+.card{position:relative;background:rgba(255,255,255,.92);border:1px solid #B7CDEA;border-radius:3px}
+.card::before{content:'';position:absolute;inset:-6px 5px 5px -6px;border:1px solid rgba(143,178,221,.5);border-radius:3px;pointer-events:none}
+.ttl{margin:0;font-family:'Shippori Mincho B1',serif;font-weight:600;color:#1E4A9A;line-height:1.1;display:flex;align-items:baseline}
+.jp{font-family:'Shippori Mincho B1',serif;font-size:12px;letter-spacing:.32em;color:#5B6F8A}
+.whisper{font-family:'Shippori Mincho B1',serif;font-size:14px;color:#4C6E9E}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;box-sizing:border-box;border:1px solid #1E4A9A;border-radius:2px;background:#1E4A9A;color:#fff;font-family:inherit;font-size:14px;font-weight:500;letter-spacing:.04em;cursor:pointer}
+.btn:hover{background:#24364F}
+.btn-w{background:#fff;color:#1E4A9A;border-color:#8FB2DD}
+.btn-w:hover{background:#F6FAFE;color:#24364F}
+.chip{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border:1px solid #C9DAEF;border-radius:2px;background:#fff;color:#4C6E9E;font-size:12px;font-weight:500;white-space:nowrap}
+.row{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 14px;border:1px solid #D3E1F2;background:#F6FAFE}
+.opt{display:flex;align-items:flex-start;gap:10px;min-height:44px;padding:10px 12px;box-sizing:border-box;border:1px solid #E4EEF9;background:#F6FAFE}
+input[type=checkbox]{accent-color:#1E4A9A;width:18px;height:18px;margin:2px 0 0;flex:none}
+:focus-visible{outline:2px solid #1E4A9A;outline-offset:3px}
+</style>
+</helmet>
+<div class="sky">
+<div class="wash" style="left: 300px; top: -140px; width: 600px; height: 420px; background: radial-gradient(closest-side, rgba(169, 205, 235, 0.8), rgba(169, 205, 235, 0))"></div>
+<div class="wash" style="left: -180px; top: 520px; width: 520px; height: 420px; background: radial-gradient(closest-side, rgba(196, 220, 243, 0.8), rgba(196, 220, 243, 0))"></div>
+<svg aria-hidden="true" width="720" height="820" viewBox="0 0 720 820" fill="none" stroke="#7FA6D8" stroke-linecap="round" style="position: absolute; left: 0; top: 0; pointer-events: none"><path d="M720 60C520 20 380 140 80 90" stroke-width="1.2" opacity=".5"></path><path d="M720 130C540 100 340 230 0 170" stroke-width=".8" opacity=".4"></path><path d="M0 700C200 660 420 800 720 740" stroke-width="1" opacity=".4"></path></svg>
+
+<div role="dialog" aria-modal="true" aria-labelledby="sync-title" class="card" style="height: 100%; box-sizing: border-box; display: flex; flex-direction: column">
+
+<div style="display: flex; align-items: flex-start; gap: 14px; padding: 22px 24px 14px">
+<div style="flex: 1; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; align-items: baseline; gap: 12px"><h2 id="sync-title" class="ttl"><span style="font-size: 44px; font-weight: 700">S</span><span style="font-size: 22px; letter-spacing: 0.04em">ync shop</span></h2><span class="jp">同期</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12px; color: #5B6F8A"><span class="mono" style="color: #24364F">a1c9e2f</span><span aria-hidden="true">→</span><span class="mono" style="color: #9A6200; font-weight: 500">e12d9b7</span><span>“add refunds queue” · main</span></div>
+</div>
+<button type="button" aria-label="Close" class="btn btn-w" style="width: 44px; padding: 0"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+</div>
+
+<div style="flex: 1; min-height: 0; overflow: auto; padding: 4px 24px 16px; display: flex; flex-direction: column; gap: 18px">
+
+<section aria-labelledby="changes-h" style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: baseline; gap: 10px"><h3 id="changes-h" class="mincho" style="margin: 0; font-size: 17px; font-weight: 700; color: #1E4A9A">Changes</h3><span style="font-size: 12px; color: #5B6F8A">3 resources</span><span class="whisper" style="margin-left: auto; font-size: 13px">— this mends the worker.</span></div>
+
+<div style="border: 1px solid #D3E1F2">
+<div class="row" style="border: 0; border-bottom: 1px solid #D3E1F2">
+<input id="svc-worker" type="checkbox" checked>
+<label for="svc-worker" style="font-weight: 700">worker</label>
+<span class="chip" style="color: #9A6200; border-color: #EAD5B0; background: #FDF8EE">modified</span>
+<span style="margin-left: auto; color: #5B6F8A; font-size: 12px">recreates 1 container</span>
+</div>
+<div class="mono" style="padding: 10px 0; background: #fff; font-size: 12px; line-height: 21px; color: #5B6F8A; white-space: pre">
+<div style="padding: 0 14px">  worker:</div>
+<div style="padding: 0 14px; background: #FDF0F2; color: #9E2A40">-   image: shop/worker:1.8.2</div>
+<div style="padding: 0 14px; background: #EFF7F2; color: #22633D">+   image: shop/worker:1.9.0</div>
+<div style="padding: 0 14px">    environment:</div>
+<div style="padding: 0 14px">      QUEUE: orders</div>
+<div style="padding: 0 14px; background: #EFF7F2; color: #22633D">+     REFUNDS_QUEUE: refunds</div>
+<div style="padding: 0 14px">    depends_on: [postgres, redis]</div>
+</div>
+</div>
+
+<div class="row">
+<input id="svc-api" type="checkbox" checked>
+<label for="svc-api" style="font-weight: 700">api</label>
+<span class="chip" style="color: #9A6200; border-color: #EAD5B0; background: #FDF8EE">modified</span>
+<span class="mono" style="font-size: 12px; color: #5B6F8A">image 1.8.2 → 1.9.0</span>
+<span style="margin-left: auto; color: #5B6F8A; font-size: 12px">recreates 2</span>
+</div>
+
+<div class="row">
+<input id="svc-migrate" type="checkbox" checked>
+<label for="svc-migrate" style="font-weight: 700">migrate</label>
+<span class="chip" style="color: #2E7A55; border-color: #BFDCCB; background: #F1F9F4">added</span>
+<span style="font-size: 12px; color: #5B6F8A">runs once, before the rest</span>
+</div>
+</section>
+
+<section aria-labelledby="order-h" style="display: flex; flex-direction: column; gap: 8px">
+<h3 id="order-h" class="mincho" style="margin: 0; font-size: 17px; font-weight: 700; color: #1E4A9A">Order</h3>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<li class="chip" style="height: 30px; padding: 0 12px; font-size: 13px"><span class="mincho" style="color: #1E4A9A; font-weight: 700">一</span>migrate</li>
+<li aria-hidden="true" style="color: #8FB2DD">⟶</li>
+<li class="chip" style="height: 30px; padding: 0 12px; font-size: 13px"><span class="mincho" style="color: #1E4A9A; font-weight: 700">二</span>api</li>
+<li aria-hidden="true" style="color: #8FB2DD">⟶</li>
+<li class="chip" style="height: 30px; padding: 0 12px; font-size: 13px"><span class="mincho" style="color: #1E4A9A; font-weight: 700">三</span>worker</li>
+<li style="color: #5B6F8A; font-size: 12px; margin-left: 4px">each waits until the last is healthy</li>
+</ol>
+</section>
+
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 8px">
+<legend class="mincho" style="padding: 0; margin-bottom: 8px; font-size: 17px; font-weight: 700; color: #1E4A9A">Options</legend>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<div class="opt"><input id="opt-pull" type="checkbox" checked><label for="opt-pull" style="display: flex; flex-direction: column; line-height: 1.4"><span style="font-weight: 700">Pull images</span><span style="color: #5B6F8A; font-size: 12px">Fetch new images first</span></label></div>
+<div class="opt"><input id="opt-prune" type="checkbox"><label for="opt-prune" style="display: flex; flex-direction: column; line-height: 1.4"><span style="font-weight: 700">Prune</span><span style="color: #5B6F8A; font-size: 12px">Remove what was deleted from Git</span></label></div>
+<div class="opt"><input id="opt-force" type="checkbox"><label for="opt-force" style="display: flex; flex-direction: column; line-height: 1.4"><span style="font-weight: 700">Force recreate</span><span style="color: #5B6F8A; font-size: 12px">Even unchanged containers</span></label></div>
+<div class="opt"><input id="opt-dry" type="checkbox"><label for="opt-dry" style="display: flex; flex-direction: column; line-height: 1.4"><span style="font-weight: 700">Dry run</span><span style="color: #5B6F8A; font-size: 12px">Show the plan, change nothing</span></label></div>
+</div>
+<p style="margin: 2px 0 0; color: #5B6F8A; font-size: 12px">Volumes are never pruned unless the app allows it.</p>
+</fieldset>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 14px 24px 20px; border-top: 1px solid #D3E1F2">
+<span style="color: #5B6F8A; font-size: 13px">3 containers will restart</span>
+<button type="button" class="btn btn-w" style="margin-left: auto">Cancel</button>
+<button type="button" class="btn">Sync 3 resources</button>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

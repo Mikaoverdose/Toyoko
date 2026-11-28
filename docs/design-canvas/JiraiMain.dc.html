@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Toyoko — Applications (Jirai)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&amp;family=Zen+Maru+Gothic:wght@400;500;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#C2185B}a:hover{color:#1C1418}
+.jr{position:relative;min-height:100vh;box-sizing:border-box;overflow:clip;color:#2B1E24;font-family:'Zen Maru Gothic',system-ui,sans-serif;font-size:14px;line-height:1.6;background-color:#FBE4EC;background-image:repeating-linear-gradient(45deg,rgba(28,20,24,.04) 0 2px,transparent 2px 16px),repeating-linear-gradient(-45deg,rgba(28,20,24,.04) 0 2px,transparent 2px 16px)}
+.decol{font-family:'Kaisei Decol',serif}
+.mono{font-family:'Geist Mono',ui-monospace,monospace}
+.band{position:relative;z-index:2;background:#1C1418;color:#FFD1DF}
+.band::after{content:'';position:absolute;left:0;right:0;bottom:-9px;height:9px;background:radial-gradient(circle at 9px 0,#1C1418 8px,transparent 8.5px) 0 0/18px 9px repeat-x}
+.card{position:relative;background:#FFF7FA;border:1.5px solid #1C1418;border-radius:16px;box-shadow:4px 4px 0 #1C1418;transition:transform .3s ease,box-shadow .3s ease}
+.card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #1C1418}
+.lace::before{content:'';position:absolute;left:16px;right:16px;top:-8px;height:8px;background:radial-gradient(circle at 7px 8px,#FFFFFF 5px,#1C1418 5.6px,#1C1418 6.6px,transparent 7.2px) 0 0/14px 8px repeat-x;pointer-events:none}
+.ttl{margin:0;font-family:'Kaisei Decol',serif;font-weight:700;color:#1C1418;line-height:1.15}
+.hl{background:linear-gradient(transparent 58%,#FFC4D6 58%,#FFC4D6 92%,transparent 92%);padding:0 4px}
+.jp{font-family:'Kaisei Decol',serif;font-size:12px;letter-spacing:.2em;color:#C2185B}
+.sigh{font-family:'Kaisei Decol',serif;font-size:14px;color:#C2185B}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;box-sizing:border-box;border:1.5px solid #1C1418;border-radius:999px;background:#1C1418;color:#FFD1DF;font-family:inherit;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;box-shadow:3px 3px 0 #E8789C}
+.btn:hover{color:#fff}
+.btn-p{background:#FFC4D6;color:#1C1418;box-shadow:3px 3px 0 #1C1418}
+.btn-p:hover{background:#FFB3CA;color:#1C1418}
+.chip{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border:1.5px solid #1C1418;border-radius:999px;background:#fff;color:#1C1418;font-size:12px;font-weight:700;white-space:nowrap}
+.tab{min-height:44px;padding:0 18px;border:1.5px solid #1C1418;border-radius:999px;background:#fff;color:#1C1418;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.tab-on{background:#1C1418;color:#FFD1DF}
+.navl{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 14px;border-radius:999px;color:#2B1E24;font-weight:700;text-decoration:none}
+.navl-on{background:#1C1418;color:#FFD1DF}
+.navl-on:hover{color:#fff}
+.deco{position:absolute;pointer-events:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid #C2185B;outline-offset:3px}
+@media (max-width:900px){.deco{display:none}}
+@media (prefers-reduced-motion:reduce){.card,.card:hover{transition:none;transform:none}}
+</style>
+</helmet>
+<div class="jr">
+
+<svg class="deco" aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" style="left: 46%; top: 132px; transform: rotate(-12deg)"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.7 1.2 5.3 3 1.6-1.8 3.1-3 5.3-3 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#FFC4D6" stroke="#1C1418" stroke-width="1.4"></path></svg>
+<svg class="deco" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" style="left: 93%; top: 160px; transform: rotate(10deg)"><path d="M10 2h4v6h6v4h-6v10h-4V12H4V8h6z" fill="#1C1418"></path></svg>
+<svg class="deco" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" style="left: 2%; top: 640px"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.7 1.2 5.3 3 1.6-1.8 3.1-3 5.3-3 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#1C1418"></path></svg>
+
+<header class="band">
+<div style="max-width: 1920px; margin: 0 auto; padding: 14px 28px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 18px">
+<a href="#" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #FFD1DF">
+<svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.7 1.2 5.3 3 1.6-1.8 3.1-3 5.3-3 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#FFC4D6"></path><path d="M10 9h4v2h-1v4h-2v-4h-1z" fill="#1C1418"></path></svg>
+<span class="decol" style="font-size: 26px; font-weight: 700; letter-spacing: 0.04em">Toyoko</span>
+<span class="decol" style="font-size: 12px; letter-spacing: 0.24em; color: #F4A3BD">とよこ</span>
+</a>
+<form role="search" style="flex: 1 1 320px; max-width: 520px; margin: 0 auto; display: flex">
+<label for="q" class="sr">Search apps and containers</label>
+<input id="q" type="search" placeholder="Search apps, containers…" style="flex: 1; min-width: 0; height: 44px; box-sizing: border-box; padding: 0 18px; border: 1.5px solid #FFD1DF; border-right: 0; border-radius: 999px 0 0 999px; background: #FFF7FA; color: #1C1418; font-family: inherit; font-size: 14px">
+<button type="submit" aria-label="Search" style="width: 54px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1.5px solid #FFD1DF; border-radius: 0 999px 999px 0; background: #FFC4D6; color: #1C1418; cursor: pointer"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></button>
+</form>
+<button type="button" class="btn btn-p" style="box-shadow: 3px 3px 0 #E8789C"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5v14"></path></svg>New app</button>
+</div>
+</header>
+
+<div style="position: relative; max-width: 1920px; margin: 0 auto; padding: 34px 28px 48px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 28px">
+
+<nav aria-label="Main" class="card lace" style="flex: 1 1 200px; max-width: 100%; box-sizing: border-box; padding: 16px 10px; display: flex; flex-direction: column; gap: 4px">
+<a href="#" aria-current="page" class="navl navl-on"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.7 1.2 5.3 3 1.6-1.8 3.1-3 5.3-3 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#FFC4D6"></path></svg>Applications</a>
+<a href="#" class="navl"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>Repositories</a>
+<a href="#" class="navl"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="2" y1="14" x2="6" y2="14"></line><line x1="10" y1="8" x2="14" y2="8"></line><line x1="18" y1="16" x2="22" y2="16"></line></svg>Settings</a>
+<div aria-hidden="true" style="margin-top: 18px; display: flex; justify-content: center"><svg width="74" height="46" viewBox="0 0 64 40"><path d="M32 18C22 4 4 4 6 18c2 12 16 10 26 4z" fill="#1C1418"></path><path d="M32 18C42 4 60 4 58 18c-2 12-16 10-26 4z" fill="#1C1418"></path><path d="M30 22 22 38l6-2 3-12z" fill="#1C1418"></path><path d="M34 22l8 16-6-2-3-12z" fill="#1C1418"></path><path d="M14 13q6-2 12 4M50 13q-6-2-12 4" stroke="#FFC4D6" stroke-width="1.5" fill="none" stroke-linecap="round"></path><circle cx="32" cy="20" r="5" fill="#FFC4D6" stroke="#1C1418" stroke-width="1.5"></circle></svg></div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+
+<section aria-label="Overview" style="display: flex; flex-direction: column; gap: 4px">
+<span class="jp">みんな見てるよ</span>
+<p class="decol" style="margin: 0; color: #1C1418; line-height: 1.2; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px"><span style="font-size: 58px; font-weight: 700">5</span><span style="font-size: 22px">apps watched,</span><span style="font-size: 46px; font-weight: 700; color: #C2185B">1</span><span style="font-size: 22px">is crying</span><span style="font-size: 20px; color: #C2185B">(｡•́︿•̀｡)</span></p>
+</section>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px">
+<div style="display: flex; flex-direction: column"><span class="jp">アプリ一覧</span><h1 class="ttl" style="font-size: 30px"><span class="hl">Applications</span></h1></div>
+<div role="tablist" aria-label="Filter apps" style="margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" role="tab" aria-selected="true" class="tab tab-on">All · 5</button>
+<button type="button" role="tab" aria-selected="false" class="tab">Healthy · 3</button>
+<button type="button" role="tab" aria-selected="false" class="tab">Hurting · 1</button>
+<button type="button" role="tab" aria-selected="false" class="tab">Out of sync · 2</button>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 30px 28px; padding-top: 8px">
+
+<article class="card lace" style="padding: 18px; display: flex; flex-direction: column; gap: 12px; background: #FFE3EC">
+<svg class="deco" aria-hidden="true" width="58" height="26" viewBox="0 0 56 24" style="right: -14px; top: 8px; transform: rotate(28deg)"><rect x="2" y="2" width="52" height="20" rx="10" fill="#FFE1D2" stroke="#1C1418" stroke-width="1.5"></rect><rect x="20" y="5" width="16" height="14" rx="3" fill="#F6C1AA" stroke="#1C1418" stroke-width="1"></rect><circle cx="9" cy="9" r="1" fill="#1C1418"></circle><circle cx="12" cy="14" r="1" fill="#1C1418"></circle><circle cx="44" cy="9" r="1" fill="#1C1418"></circle><circle cx="47" cy="14" r="1" fill="#1C1418"></circle></svg>
+<div style="display: flex; align-items: baseline; gap: 10px"><h2 class="decol" style="margin: 0; font-size: 21px; font-weight: 700"><a href="JiraiAppMap.dc.html" style="color: #1C1418">shop</a></h2><span style="font-size: 12px; color: #7A5A66">5 services</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span class="chip" style="color: #A4161A; border-color: #A4161A; background: #FFE9EC"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>Degraded</span>
+<span class="chip" style="color: #8A5300; border-color: #8A5300; background: #FFF4DF"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 12-4-4-4 4"></path><path d="M12 16V8"></path></svg>Out of sync</span>
+</div>
+<dl style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; margin: 0; font-size: 12px">
+<div><dt style="color: #7A5A66">Source</dt><dd class="mono" style="margin: 0">apps/shop · main</dd></div>
+<div><dt style="color: #7A5A66">Revision</dt><dd class="mono" style="margin: 0">a1c9e2f → <span style="color: #8A5300">e12d9b7</span></dd></div>
+<div><dt style="color: #7A5A66">Containers</dt><dd style="margin: 0; font-weight: 700">5 of 6 up</dd></div>
+<div><dt style="color: #7A5A66">Last sync</dt><dd style="margin: 0">2 h ago</dd></div>
+</dl>
+</article>
+
+<article class="card lace" style="padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: baseline; gap: 10px"><h2 class="decol" style="margin: 0; font-size: 21px; font-weight: 700"><a href="#" style="color: #1C1418">metrics</a></h2><span style="font-size: 12px; color: #7A5A66">3 services</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span class="chip" style="color: #3A55A6; border-color: #3A55A6; background: #ECF0FB"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>Progressing</span>
+<span class="chip"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Synced</span>
+</div>
+<dl style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; margin: 0; font-size: 12px">
+<div><dt style="color: #7A5A66">Source</dt><dd class="mono" style="margin: 0">apps/metrics · main</dd></div>
+<div><dt style="color: #7A5A66">Revision</dt><dd class="mono" style="margin: 0">e12d9b7</dd></div>
+<div><dt style="color: #7A5A66">Containers</dt><dd style="margin: 0; font-weight: 700">3 of 4 up</dd></div>
+<div><dt style="color: #7A5A66">Last sync</dt><dd style="margin: 0">40 s ago</dd></div>
+</dl>
+</article>
+
+<article class="card lace" style="padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: baseline; gap: 10px"><h2 class="decol" style="margin: 0; font-size: 21px; font-weight: 700"><a href="#" style="color: #1C1418">proxy</a></h2><span style="font-size: 12px; color: #7A5A66">1 service</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span class="chip" style="color: #1F6B45; border-color: #1F6B45; background: #E8F6EE"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Healthy</span>
+<span class="chip" style="color: #8A5300; border-color: #8A5300; background: #FFF4DF"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 12-4-4-4 4"></path><path d="M12 16V8"></path></svg>Out of sync</span>
+</div>
+<dl style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; margin: 0; font-size: 12px">
+<div><dt style="color: #7A5A66">Source</dt><dd class="mono" style="margin: 0">apps/proxy · main</dd></div>
+<div><dt style="color: #7A5A66">Revision</dt><dd class="mono" style="margin: 0">7d03b41 → <span style="color: #8A5300">e12d9b7</span></dd></div>
+<div><dt style="color: #7A5A66">Containers</dt><dd style="margin: 0; font-weight: 700">1 of 1 up</dd></div>
+<div><dt style="color: #7A5A66">Last sync</dt><dd style="margin: 0">3 d ago</dd></div>
+</dl>
+</article>
+
+<article class="card lace" style="padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: baseline; gap: 10px"><h2 class="decol" style="margin: 0; font-size: 21px; font-weight: 700"><a href="#" style="color: #1C1418">blog</a></h2><span style="font-size: 12px; color: #7A5A66">2 services</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span class="chip" style="color: #1F6B45; border-color: #1F6B45; background: #E8F6EE"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Healthy</span>
+<span class="chip"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Synced</span>
+</div>
+<dl style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; margin: 0; font-size: 12px">
+<div><dt style="color: #7A5A66">Source</dt><dd class="mono" style="margin: 0">apps/blog · main</dd></div>
+<div><dt style="color: #7A5A66">Revision</dt><dd class="mono" style="margin: 0">e12d9b7</dd></div>
+<div><dt style="color: #7A5A66">Containers</dt><dd style="margin: 0; font-weight: 700">2 of 2 up</dd></div>
+<div><dt style="color: #7A5A66">Last sync</dt><dd style="margin: 0">1 d ago</dd></div>
+</dl>
+</article>
+
+<article class="card lace" style="padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: baseline; gap: 10px"><h2 class="decol" style="margin: 0; font-size: 21px; font-weight: 700"><a href="#" style="color: #1C1418">home-media</a></h2><span style="font-size: 12px; color: #7A5A66">4 services</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span class="chip" style="color: #1F6B45; border-color: #1F6B45; background: #E8F6EE"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Healthy</span>
+<span class="chip"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Synced</span>
+</div>
+<dl style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; margin: 0; font-size: 12px">
+<div><dt style="color: #7A5A66">Source</dt><dd class="mono" style="margin: 0">apps/media · main</dd></div>
+<div><dt style="color: #7A5A66">Revision</dt><dd class="mono" style="margin: 0">e12d9b7</dd></div>
+<div><dt style="color: #7A5A66">Containers</dt><dd style="margin: 0; font-weight: 700">4 of 4 up</dd></div>
+<div><dt style="color: #7A5A66">Last sync</dt><dd style="margin: 0">1 d ago</dd></div>
+</dl>
+</article>
+
+</div>
+</main>
+
+<aside aria-label="Widgets" style="flex: 1 1 300px; max-width: 100%; min-width: 0; display: flex; flex-direction: column; gap: 30px">
+
+<section class="card lace" aria-labelledby="host-h" style="padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<svg class="deco" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" style="right: 16px; top: 16px"><path d="M10 2h4v6h6v4h-6v10h-4V12H4V8h6z" fill="#1C1418"></path></svg>
+<div style="display: flex; flex-direction: column"><span class="jp">ホスト</span><h2 id="host-h" class="ttl" style="font-size: 19px">Docker host</h2></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span class="chip" style="color: #1F6B45; border-color: #1F6B45; background: #E8F6EE"><span style="width: 7px; height: 7px; border-radius: 50%; background: #1F6B45"></span>Connected</span>
+<span class="chip">local</span>
+</div>
+<dl style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; margin: 0; font-size: 12px">
+<div><dt style="color: #7A5A66">Docker API</dt><dd class="mono" style="margin: 0">1.51</dd></div>
+<div><dt style="color: #7A5A66">Containers</dt><dd style="margin: 0; font-weight: 700">15 of 17 up</dd></div>
+</dl>
+</section>
+
+<section class="card lace" aria-labelledby="recent-h" style="padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-direction: column"><span class="jp">最近の同期</span><h2 id="recent-h" class="ttl" style="font-size: 19px">Recent syncs</h2></div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px">
+<li style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; border: 1.5px dashed #E8A3BA; border-radius: 12px; background: #fff"><svg role="img" aria-label="In progress" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3A55A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg><span class="decol" style="font-weight: 700">metrics</span><span style="color: #7A5A66; font-size: 12px">auto</span><span style="margin-left: auto; color: #7A5A66; font-size: 12px">40 s ago</span></li>
+<li style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; border: 1.5px dashed #E8A3BA; border-radius: 12px; background: #fff"><svg role="img" aria-label="Succeeded" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg><span class="decol" style="font-weight: 700">shop</span><span style="color: #7A5A66; font-size: 12px">manual</span><span style="margin-left: auto; color: #7A5A66; font-size: 12px">2 h ago</span></li>
+<li style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; border: 1.5px dashed #E8A3BA; border-radius: 12px; background: #fff"><svg role="img" aria-label="Succeeded" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F6B45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg><span class="decol" style="font-weight: 700">blog</span><span style="color: #7A5A66; font-size: 12px">auto</span><span style="margin-left: auto; color: #7A5A66; font-size: 12px">1 d ago</span></li>
+</ul>
+</section>
+
+<p class="sigh" style="margin: 0 4px; text-align: right">everyone's fine… except the worker ♡</p>
+</aside>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Toyoko — Applications (Sticker desk)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&amp;family=Gaegu:wght@700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+html{scroll-behavior:smooth}
+a{color:var(--strong)}a:hover{color:#4F3B36}
+@property --bg{syntax:'<color>';inherits:true;initial-value:#DDEDF5}
+@property --sky-top{syntax:'<color>';inherits:true;initial-value:#B5DBEF}
+@property --fill{syntax:'<color>';inherits:true;initial-value:#A6D8EE}
+@property --strong{syntax:'<color>';inherits:true;initial-value:#2F7799}
+@property --deep{syntax:'<color>';inherits:true;initial-value:#78B6D3}
+@property --ink{syntax:'<color>';inherits:true;initial-value:#1E4E66}
+@property --chip{syntax:'<color>';inherits:true;initial-value:#D3ECF7}
+@property --chip-ink{syntax:'<color>';inherits:true;initial-value:#1E4E66}
+@property --t1{syntax:'<color>';inherits:true;initial-value:#E6F4FA}
+@property --t2{syntax:'<color>';inherits:true;initial-value:#D3ECF7}
+@property --t3{syntax:'<color>';inherits:true;initial-value:#C2E3F2}
+.desk{position:relative;min-height:100vh;box-sizing:border-box;overflow-x:clip;color:#5C4B47;font-family:'M PLUS Rounded 1c',ui-rounded,system-ui,sans-serif;font-size:14px;line-height:1.55;background-color:var(--bg);background-image:radial-gradient(rgba(91,64,56,.07) 1px,transparent 1.3px),radial-gradient(rgba(255,255,255,.5) 1px,transparent 1.3px),linear-gradient(to bottom,var(--sky-top),var(--bg) 1200px);background-size:5px 5px,7px 7px,100% 1200px;background-position:0 0,3px 2px,0 0;background-repeat:repeat,repeat,no-repeat;transition:--bg 1.4s ease,--sky-top 1.4s ease,--fill 1.4s ease,--strong 1.4s ease,--deep 1.4s ease,--ink 1.4s ease,--chip 1.4s ease,--chip-ink 1.4s ease,--t1 1.4s ease,--t2 1.4s ease,--t3 1.4s ease}
+.mono{font-family:'Geist Mono',ui-monospace,monospace}
+.stk{background:rgba(255,255,255,.94);border:3px solid #fff;border-radius:22px;box-shadow:0 6px 0 color-mix(in srgb,var(--deep) 45%,transparent),0 10px 22px color-mix(in srgb,var(--deep) 40%,transparent)}
+.lift{transition:transform .45s cubic-bezier(.3,1.6,.5,1),box-shadow .45s ease}
+.lift:hover{transform:translateY(-6px) rotate(-.8deg)}
+.bico{flex:none;width:42px;height:42px;border-radius:12px;background:var(--fill);color:var(--ink);display:flex;align-items:center;justify-content:center;transform:rotate(-6deg);box-shadow:0 4px 0 var(--deep)}
+.hl{background:linear-gradient(176deg,transparent 54%,var(--fill) 54%,var(--fill) 90%,transparent 90%);padding:0 4px}
+.note{display:inline-block;font-family:'Gaegu',cursive;font-weight:700;font-size:20px;line-height:1;color:var(--strong);transform:rotate(-3deg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;box-sizing:border-box;border-radius:999px;border:3px solid #fff;background:var(--fill);color:var(--ink);font-family:inherit;font-size:14px;font-weight:800;text-decoration:none;cursor:pointer;box-shadow:0 4px 0 var(--deep),0 8px 16px color-mix(in srgb,var(--deep) 35%,transparent)}
+.btn:hover{color:var(--ink)}
+.chip{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;background:var(--chip);color:var(--chip-ink);font-size:12px;font-weight:700;white-space:nowrap}
+.sticker-text{text-shadow:3px 0 #fff,-3px 0 #fff,0 3px #fff,0 -3px #fff,2px 2px #fff,-2px -2px #fff,2px -2px #fff,-2px 2px #fff,0 6px 10px rgba(91,64,56,.25)}
+.doodle{position:absolute;filter:drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(0 6px 6px rgba(91,64,56,.22))}
+.twinkle{animation:twinkle 3.4s ease-in-out infinite}
+.pop-word{display:inline-block;animation:pop .8s cubic-bezier(.3,1.6,.5,1) both}
+.swb{width:44px;height:44px;display:flex;align-items:center;justify-content:center;padding:0;background:transparent;border:0;border-radius:50%;cursor:pointer}
+.sw{display:block;width:26px;height:26px;border-radius:50%;border:3px solid #fff;box-sizing:border-box;box-shadow:0 2px 0 rgba(91,64,56,.2)}
+.sw-on{outline:3px solid #4F3B36;outline-offset:1px;animation:swpop .45s cubic-bezier(.3,1.6,.5,1)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--strong);outline-offset:3px}
+@keyframes pop{0%{transform:scale(.3) rotate(0);opacity:0}70%{transform:scale(1.08) rotate(-4deg);opacity:1}100%{transform:scale(1) rotate(-3deg)}}
+@keyframes swpop{0%{transform:scale(.8)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+@keyframes twinkle{0%,100%{opacity:.4;transform:scale(.8)}50%{opacity:1;transform:scale(1.1)}}
+@media (max-width:900px){.doodle{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.desk{transition:none}.twinkle,.pop-word,.sw-on{animation:none}.pop-word{transform:rotate(-3deg)}.lift,.lift:hover{transition:none;transform:none}}
+</style>
+</helmet>
+<div class="desk" style="{{vars}}">
+<div style="max-width: 1920px; margin: 0 auto; padding: 20px 24px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px">
+<a href="#" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #6E4F48">
+<span class="bico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13 7 4l6 5q3-1 6 0l6-5 1 9q2 13-10 14Q4 26 6 13z" fill="#FFFFFF"></path><circle cx="12" cy="16" r="1" fill="currentColor"></circle><circle cx="20" cy="16" r="1" fill="currentColor"></circle></svg></span>
+<span class="sticker-text" style="font-size: 24px; font-weight: 800; letter-spacing: 0.01em">Toyoko</span>
+</a>
+<form role="search" style="flex: 1 1 320px; max-width: 520px; margin: 0 auto; display: flex">
+<label for="q" class="sr">Search apps and containers</label>
+<input id="q" type="search" placeholder="Search apps, containers…" style="flex: 1; min-width: 0; height: 44px; box-sizing: border-box; padding: 0 18px; border: 3px solid #fff; border-right: 0; border-radius: 999px 0 0 999px; background: #fff; color: #4F3B36; font-family: inherit; font-size: 14px; box-shadow: 0 4px 0 color-mix(in srgb, var(--deep) 45%, transparent)">
+<button type="submit" aria-label="Search" style="width: 56px; height: 44px; display: flex; align-items: center; justify-content: center; border: 3px solid #fff; border-radius: 0 999px 999px 0; background: var(--fill); color: var(--ink); cursor: pointer; box-shadow: 0 4px 0 var(--deep)"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></button>
+</form>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+<div role="group" aria-label="Theme" style="display: flex; align-items: center">
+<sc-for list="{{swatches}}" as="s" hint-placeholder-count="5">
+<button type="button" class="swb" aria-label="{{s.label}}" aria-pressed="{{s.pressed}}" onClick="{{s.pick}}"><span class="{{s.cls}}" style="{{s.style}}"></span></button>
+</sc-for>
+</div>
+<button type="button" class="btn"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5v14"></path></svg>New app</button>
+</div>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 22px">
+
+<nav aria-label="Main" class="stk" style="flex: 1 1 220px; max-width: 100%; box-sizing: border-box; padding: 12px; position: relative; min-height: 520px; display: flex; flex-direction: column; gap: 6px">
+<a href="#" aria-current="page" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border-radius: 999px; background: var(--fill); color: var(--ink); font-weight: 800; text-decoration: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"></rect><rect x="14" y="3" width="7" height="7" rx="2"></rect><rect x="14" y="14" width="7" height="7" rx="2"></rect><rect x="3" y="14" width="7" height="7" rx="2"></rect></svg>Applications</a>
+<a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #6E4F48; font-weight: 700; text-decoration: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>Repositories</a>
+<a href="#" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #6E4F48; font-weight: 700; text-decoration: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="2" y1="14" x2="6" y2="14"></line><line x1="10" y1="8" x2="14" y2="8"></line><line x1="18" y1="16" x2="22" y2="16"></line></svg>Settings</a>
+<svg class="doodle" aria-hidden="true" width="58" height="58" viewBox="0 0 32 32" fill="none" stroke="#5B4038" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="left: 28px; bottom: 28px; transform: rotate(-8deg)"><path d="M7 11h14v10a4 4 0 0 1-4 4h-6a4 4 0 0 1-4-4z" style="fill: var(--t2)"></path><path d="M21 13h2a3 3 0 0 1 0 6h-2"></path><path d="M11 4q2 2 0 4M16 4q2 2 0 4"></path></svg>
+<svg class="doodle" aria-hidden="true" width="62" height="62" viewBox="0 0 32 32" fill="none" stroke="#5B4038" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="right: 26px; bottom: 34px; transform: rotate(7deg)"><path d="M9 18h14l-2 9H11z" style="fill: var(--t3)"></path><path d="M16 18v-8"></path><path d="M16 13q-6-1-7-6 6 0 7 6z" style="fill: #fff"></path><path d="M16 11q5-1 7-5-6-1-7 5z" style="fill: #fff"></path></svg>
+<svg class="doodle twinkle" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" stroke="#5B4038" stroke-width="1.6" stroke-linejoin="round" style="left: 98px; bottom: 96px"><path d="M12 2Q13 11 22 12 13 13 12 22 11 13 2 12 11 11 12 2Z" fill="#FFFFFF"></path></svg>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px">
+<span class="bico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"></rect><rect x="14" y="3" width="7" height="7" rx="2"></rect><rect x="14" y="14" width="7" height="7" rx="2"></rect><rect x="3" y="14" width="7" height="7" rx="2"></rect></svg></span>
+<h1 style="margin: 0; font-size: 28px; font-weight: 800; color: #6E4F48; line-height: 1.2"><span class="pop-word"><span class="hl">Applications</span></span></h1>
+<span class="note">1 needs love ♡</span>
+</div>
+
+<div role="tablist" aria-label="Filter apps" style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" role="tab" aria-selected="true" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 3px solid #fff; background: var(--fill); color: var(--ink); font-family: inherit; font-size: 14px; font-weight: 800; cursor: pointer; box-shadow: 0 3px 0 var(--deep)">All · 5</button>
+<button type="button" role="tab" aria-selected="false" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 3px solid #fff; background: rgba(255, 255, 255, 0.8); color: #6E4F48; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer">Healthy · 3</button>
+<button type="button" role="tab" aria-selected="false" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 3px solid #fff; background: rgba(255, 255, 255, 0.8); color: #6E4F48; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer">Needs love · 1</button>
+<button type="button" role="tab" aria-selected="false" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 3px solid #fff; background: rgba(255, 255, 255, 0.8); color: #6E4F48; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer">Out of sync · 2</button>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 22px">
+
+<article class="stk lift" style="padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 10px"><h2 style="margin: 0; font-size: 18px; font-weight: 800"><a href="StickerAppMap.dc.html" style="color: #4F3B36; text-decoration: none">shop</a></h2><span class="chip" style="margin-left: auto">5 services</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span class="chip" style="background: #FBE4E4; color: #B23A3A"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>Degraded</span>
+<span class="chip" style="background: #FBEEDC; color: #9A5B00"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 12-4-4-4 4"></path><path d="M12 16V8"></path></svg>Out of sync</span>
+</div>
+<dl style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; margin: 0; font-size: 12px">
+<div><dt style="color: #7D6A65">Source</dt><dd class="mono" style="margin: 0; color: #4F3B36">apps/shop · main</dd></div>
+<div><dt style="color: #7D6A65">Revision</dt><dd class="mono" style="margin: 0; color: #4F3B36">a1c9e2f → <span style="color: #9A5B00">e12d9b7</span></dd></div>
+<div><dt style="color: #7D6A65">Containers</dt><dd style="margin: 0; color: #4F3B36; font-weight: 700">5 of 6 up</dd></div>
+<div><dt style="color: #7D6A65">Last sync</dt><dd style="margin: 0; color: #4F3B36">2 h ago</dd></div>
+</dl>
+</article>
+
+<article class="stk lift" style="padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 10px"><h2 style="margin: 0; font-size: 18px; font-weight: 800"><a href="#" style="color: #4F3B36; text-decoration: none">metrics</a></h2><span class="chip" style="margin-left: auto">3 services</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span class="chip" style="background: #E1EEF7; color: #2F6F99"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>Progressing</span>
+<span class="chip" style="background: #F3EDEA; color: #6E4F48"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Synced</span>
+</div>
+<dl style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; margin: 0; font-size: 12px">
+<div><dt style="color: #7D6A65">Source</dt><dd class="mono" style="margin: 0; color: #4F3B36">apps/metrics · main</dd></div>
+<div><dt style="color: #7D6A65">Revision</dt><dd class="mono" style="margin: 0; color: #4F3B36">e12d9b7</dd></div>
+<div><dt style="color: #7D6A65">Containers</dt><dd style="margin: 0; color: #4F3B36; font-weight: 700">3 of 4 up</dd></div>
+<div><dt style="color: #7D6A65">Last sync</dt><dd style="margin: 0; color: #4F3B36">40 s ago</dd></div>
+</dl>
+</article>
+
+<article class="stk lift" style="padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 10px"><h2 style="margin: 0; font-size: 18px; font-weight: 800"><a href="#" style="color: #4F3B36; text-decoration: none">proxy</a></h2><span class="chip" style="margin-left: auto">1 service</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span class="chip" style="background: #E3F3E8; color: #2C7A4B"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Healthy</span>
+<span class="chip" style="background: #FBEEDC; color: #9A5B00"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m16 12-4-4-4 4"></path><path d="M12 16V8"></path></svg>Out of sync</span>
+</div>
+<dl style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; margin: 0; font-size: 12px">
+<div><dt style="color: #7D6A65">Source</dt><dd class="mono" style="margin: 0; color: #4F3B36">apps/proxy · main</dd></div>
+<div><dt style="color: #7D6A65">Revision</dt><dd class="mono" style="margin: 0; color: #4F3B36">7d03b41 → <span style="color: #9A5B00">e12d9b7</span></dd></div>
+<div><dt style="color: #7D6A65">Containers</dt><dd style="margin: 0; color: #4F3B36; font-weight: 700">1 of 1 up</dd></div>
+<div><dt style="color: #7D6A65">Last sync</dt><dd style="margin: 0; color: #4F3B36">3 d ago</dd></div>
+</dl>
+</article>
+
+<article class="stk lift" style="padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 10px"><h2 style="margin: 0; font-size: 18px; font-weight: 800"><a href="#" style="color: #4F3B36; text-decoration: none">blog</a></h2><span class="chip" style="margin-left: auto">2 services</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span class="chip" style="background: #E3F3E8; color: #2C7A4B"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Healthy</span>
+<span class="chip" style="background: #F3EDEA; color: #6E4F48"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Synced</span>
+</div>
+<dl style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; margin: 0; font-size: 12px">
+<div><dt style="color: #7D6A65">Source</dt><dd class="mono" style="margin: 0; color: #4F3B36">apps/blog · main</dd></div>
+<div><dt style="color: #7D6A65">Revision</dt><dd class="mono" style="margin: 0; color: #4F3B36">e12d9b7</dd></div>
+<div><dt style="color: #7D6A65">Containers</dt><dd style="margin: 0; color: #4F3B36; font-weight: 700">2 of 2 up</dd></div>
+<div><dt style="color: #7D6A65">Last sync</dt><dd style="margin: 0; color: #4F3B36">1 d ago</dd></div>
+</dl>
+</article>
+
+<article class="stk lift" style="padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 10px"><h2 style="margin: 0; font-size: 18px; font-weight: 800"><a href="#" style="color: #4F3B36; text-decoration: none">home-media</a></h2><span class="chip" style="margin-left: auto">4 services</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span class="chip" style="background: #E3F3E8; color: #2C7A4B"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Healthy</span>
+<span class="chip" style="background: #F3EDEA; color: #6E4F48"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Synced</span>
+</div>
+<dl style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; margin: 0; font-size: 12px">
+<div><dt style="color: #7D6A65">Source</dt><dd class="mono" style="margin: 0; color: #4F3B36">apps/media · main</dd></div>
+<div><dt style="color: #7D6A65">Revision</dt><dd class="mono" style="margin: 0; color: #4F3B36">e12d9b7</dd></div>
+<div><dt style="color: #7D6A65">Containers</dt><dd style="margin: 0; color: #4F3B36; font-weight: 700">4 of 4 up</dd></div>
+<div><dt style="color: #7D6A65">Last sync</dt><dd style="margin: 0; color: #4F3B36">1 d ago</dd></div>
+</dl>
+</article>
+
+</div>
+</main>
+
+<aside aria-label="Widgets" style="flex: 1 1 300px; max-width: 100%; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+
+<section class="stk lift" aria-labelledby="host-h" style="position: relative; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<svg class="doodle" aria-hidden="true" width="56" height="56" viewBox="0 0 32 32" fill="none" stroke="#5B4038" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="right: -10px; top: -30px; transform: rotate(10deg)"><path d="M6 13 7 4l6 5q3-1 6 0l6-5 1 9q2 13-10 14Q4 26 6 13z" style="fill: var(--t2)"></path><circle cx="12" cy="16" r="1.2" fill="#5B4038"></circle><circle cx="20" cy="16" r="1.2" fill="#5B4038"></circle><path d="M15 19q1 1 2 0"></path></svg>
+<h2 id="host-h" style="margin: 0; font-size: 16px; font-weight: 800; color: #6E4F48"><span class="hl">Docker host</span></h2>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span style="display: inline-flex; align-items: center; gap: 8px; height: 30px; padding: 0 12px; border-radius: 999px; background: #fff; border: 2px solid #F3EDEA; font-size: 13px; font-weight: 700; color: #4F3B36"><span style="width: 8px; height: 8px; border-radius: 50%; background: #3FB950"></span>Connected</span>
+<span class="chip">local</span>
+</div>
+<dl style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; margin: 0; font-size: 12px">
+<div><dt style="color: #7D6A65">Docker API</dt><dd class="mono" style="margin: 0; color: #4F3B36">1.51</dd></div>
+<div><dt style="color: #7D6A65">Containers</dt><dd style="margin: 0; color: #4F3B36; font-weight: 700">15 of 17 up</dd></div>
+</dl>
+</section>
+
+<section class="stk lift" aria-labelledby="recent-h" style="padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 10px"><h2 id="recent-h" style="margin: 0; font-size: 16px; font-weight: 800; color: #6E4F48"><span class="hl">Recent syncs</span></h2><span class="note" style="font-size: 18px">new!</span></div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px">
+<li style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; border-radius: 14px; background: var(--t1)"><svg role="img" aria-label="In progress" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F6F99" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg><span style="font-weight: 700; color: #4F3B36">metrics</span><span style="color: #7D6A65; font-size: 12px">auto</span><span style="margin-left: auto; color: #7D6A65; font-size: 12px">40 s ago</span></li>
+<li style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; border-radius: 14px; background: var(--t1)"><svg role="img" aria-label="Succeeded" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C7A4B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-weight: 700; color: #4F3B36">shop</span><span style="color: #7D6A65; font-size: 12px">manual</span><span style="margin-left: auto; color: #7D6A65; font-size: 12px">2 h ago</span></li>
+<li style="display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 12px; border-radius: 14px; background: var(--t1)"><svg role="img" aria-label="Succeeded" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C7A4B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-weight: 700; color: #4F3B36">blog</span><span style="color: #7D6A65; font-size: 12px">auto</span><span style="margin-left: auto; color: #7D6A65; font-size: 12px">1 d ago</span></li>
+</ul>
+</section>
+
+<div style="position: relative; height: 90px">
+<svg class="doodle" aria-hidden="true" width="66" height="66" viewBox="0 0 32 32" fill="none" stroke="#5B4038" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="left: 30px; top: 10px; transform: rotate(-10deg)"><path d="M8 11h16a6 6 0 0 1 6 6v1a4 4 0 0 1-7 3l-2-2H11l-2 2a4 4 0 0 1-7-3v-1a6 6 0 0 1 6-6z" style="fill: var(--t3)"></path><path d="M10 14v5M7.5 16.5h5"></path><circle cx="21" cy="15" r="1.2" fill="#5B4038"></circle><circle cx="24" cy="18" r="1.2" fill="#5B4038"></circle></svg>
+<svg class="doodle" aria-hidden="true" width="56" height="56" viewBox="0 0 32 32" fill="none" stroke="#5B4038" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="left: 140px; top: 22px; transform: rotate(8deg)"><path d="M6 5h17l4 4v18H6z" style="fill: var(--t2)"></path><path d="M10 5v7h11V5"></path><rect x="10" y="17" width="12" height="7" fill="#FFFFFF"></rect></svg>
+<svg class="doodle twinkle" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" stroke="#5B4038" stroke-width="1.6" stroke-linejoin="round" style="left: 222px; top: 8px; animation-delay: 1.2s"><path d="M12 2Q13 11 22 12 13 13 12 22 11 13 2 12 11 11 12 2Z" fill="#FFFFFF"></path></svg>
+</div>
+</aside>
+
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["sky","pink","mint","lavender","peach"],"default":"sky"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const themes = [
+      { id: 'sky', name: 'Sky', bg: '#DDEDF5', skyTop: '#B5DBEF', fill: '#A6D8EE', strong: '#2F7799', deep: '#78B6D3', ink: '#1E4E66', chip: '#D3ECF7', chipInk: '#1E4E66', t1: '#E6F4FA', t2: '#D3ECF7', t3: '#C2E3F2' },
+      { id: 'pink', name: 'Pink', bg: '#F6E6E8', skyTop: '#F0C9D2', fill: '#F4C3CB', strong: '#A04B62', deep: '#DE96A5', ink: '#6B2537', chip: '#FADCE1', chipInk: '#6B2537', t1: '#FCEBEE', t2: '#F9DCE1', t3: '#F5CDD5' },
+      { id: 'mint', name: 'Mint', bg: '#DFF2EA', skyTop: '#BDE6D4', fill: '#A8E0C6', strong: '#2C7A5B', deep: '#7CC4A4', ink: '#1D4D3A', chip: '#D3F0E3', chipInk: '#1D4D3A', t1: '#E8F7F0', t2: '#D3F0E3', t3: '#C0E9D7' },
+      { id: 'lavender', name: 'Lavender', bg: '#E9E5F7', skyTop: '#D2CAF0', fill: '#CBC2F0', strong: '#5E4FA8', deep: '#A497DA', ink: '#3A2E78', chip: '#E2DDF8', chipInk: '#3A2E78', t1: '#F0EDFB', t2: '#E2DDF8', t3: '#D6CFF4' },
+      { id: 'peach', name: 'Peach', bg: '#FBEBDD', skyTop: '#F7D3B5', fill: '#F8C9A4', strong: '#A9531C', deep: '#EBA97A', ink: '#6A3010', chip: '#FDE3CF', chipInk: '#6A3010', t1: '#FEF1E6', t2: '#FDE3CF', t3: '#FBD6B9' }
+    ];
+    const id = (this.state && this.state.theme) || this.props.theme || 'sky';
+    const t = themes.find((x) => x.id === id) || themes[0];
+    const vars = '--bg:' + t.bg + ';--sky-top:' + t.skyTop + ';--fill:' + t.fill + ';--strong:' + t.strong + ';--deep:' + t.deep + ';--ink:' + t.ink + ';--chip:' + t.chip + ';--chip-ink:' + t.chipInk + ';--t1:' + t.t1 + ';--t2:' + t.t2 + ';--t3:' + t.t3;
+    return {
+      vars: vars,
+      swatches: themes.map((x) => ({
+        label: x.name + ' theme',
+        pressed: x.id === t.id ? 'true' : 'false',
+        cls: x.id === t.id ? 'sw sw-on' : 'sw',
+        style: 'background:' + x.fill,
+        pick: () => this.setState({ theme: x.id })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
